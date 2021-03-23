@@ -1,5 +1,5 @@
 # node-windows-folder-manager
-node-folder-manager 
+litle module for manage folder
 
 ## @examples
 ```javascript
