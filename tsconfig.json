@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "target": "ES5",
+        "module": "ES2015",
+        "outDir": "./src/js",
+        "sourceMap": true,
+        "removeComments": true,
+        "preserveConstEnums": true
+    }
+}

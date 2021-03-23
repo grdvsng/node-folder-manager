@@ -1,0 +1,28 @@
+{
+  "name": "node-folder-manager",
+  "version": "1.0.0",
+  "description": "node-windows-folder-manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "node -e 'try { require(`./src/js/tests/tests.js`); } catch(error) { console.warn(error); }'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grdvsng/node-folder-manager.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/grdvsng/node-folder-manager/issues"
+  },
+  "homepage": "https://github.com/grdvsng/node-folder-manager#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "glob": "^7.1.6",
+    "uglify-js": "^3.13.2"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.35"
+  }
+}
