@@ -1,10 +1,16 @@
-/*
-    main
-*/
+/**
+ * fs main module
+ */
 const fs   = require("fs");
+/**
+ * path main module
+ */
 const path = require("path");
 
 
+/**
+ * Main class(manage folders via this interface)
+ */
 class FolderManager
 {
     constructor()
@@ -22,6 +28,16 @@ class FolderManager
         return src;
     }
 
+    /** 
+     * Create directory 
+     * 
+     * @param src - new folder destonition
+     * @param replace - replace folder if exists 
+     * ```javascript
+     * import { nfm } from 'node-folder-manager'
+     * nfm.create('./temp')
+     * ```
+    */
     create(src: string, replace: boolean = false): void
     {
         let folderPath = this._checkFolder(src);
@@ -37,6 +53,16 @@ class FolderManager
         }
     }
 
+    /** 
+     * Is directory exists
+     * 
+     * @param src - folder destonition
+     * ```javascript
+     * import { nfm } from 'node-folder-manager'
+     * nfm.exists('./temp')
+     * >> true
+     * ```
+    */
     exists(src: string): boolean
     {
         let folderPath = this._checkFolder(src);
@@ -44,6 +70,15 @@ class FolderManager
         return !!fs.existsSync(folderPath);
     }
 
+    /** 
+     * Remove directory
+     * 
+     * @param src - folder destonition
+     * ```javascript
+     * import { nfm } from 'node-folder-manager'
+     * nfm.remove('./temp')
+     * ```
+    */
     remove(src: string, recursive: boolean=true)
     {
         let folderPath = this._checkFolder(src);
@@ -75,11 +110,32 @@ class FolderManager
         return files;
     }
 
+    /** 
+     * Pretty dir tree 
+     * 
+     * @param src - folder destonition
+     * ```javascript
+     * import { nfm } from 'node-folder-manager'
+     * nfm.dir('./temp')
+     * >> ./temp
+     * >>   /temp/test.js
+     * ```
+    */
     dir(src: string): string
     {
         return this._dir(src).join("\n");
     }
 
+    /** 
+     * dir tree 
+     * 
+     * @param src - folder destonition
+     * ```javascript
+     * import { nfm } from 'node-folder-manager'
+     * nfm.glob('./temp')
+     * [{ src: './temp/test.js', type: 'file' }, { src: './temp/test/', type: 'directory' }]
+     * ```
+    */
     glob(src: string, files: {[key: string]: string}[]=[]): {[key: string]: string}[]
     {
         let folderPath = this._checkFolder(src);
@@ -115,6 +171,17 @@ class FolderManager
         });
     }
 
+    /**
+     * Copy folder
+     * 
+     * @param src       - source folder path
+     * @param dest      - new destonition
+     * @param recursive - copy all files and sub directory
+      ```javascript
+     * import { nfm } from 'node-folder-manager'
+     * nfm.Copy('./temp', './test')
+     * ```
+    */
     copy(src: string, dest: string, recursive: boolean = true)
     {
         let folderSrc  = this._checkFolder(src);
@@ -142,6 +209,9 @@ class FolderManager
 } 
 
 
+/**
+ * Instance of FolderManager
+ */
 module.exports = {
     nfm:  new FolderManager(),
 }

@@ -1,5 +1,5 @@
 # node-windows-folder-manager
-node-folder-manager
+node-folder-manager 
 
 ## @examples
 ```javascript

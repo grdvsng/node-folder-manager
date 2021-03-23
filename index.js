@@ -1,3 +1,5 @@
+const nfm = require('./src/js/src/bin').nfm;
 
 
-exports.nfm = require('./src/js/src/bin').nfm;
+export default nfm;
+
